@@ -24,6 +24,7 @@ public class RegistroDeProducto {
         em.getTransaction().begin();
 
         productoDao.guardar(celular);
+        categoriaDao.guardar(celulares);
 
         em.getTransaction().commit();
         em.close();
