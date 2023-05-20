@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class RegistroDeProducto {
     public static void main(String[] args) {
@@ -18,6 +19,9 @@ public class RegistroDeProducto {
         ProductoDao productoDao = new ProductoDao(em);
         Producto p = productoDao.consultaPorId(1l);
         System.out.println(p.getNombre());
+
+        List<Producto> productos = productoDao.consultarTodos();
+        productos.forEach(prod -> System.out.println(prod.getDescripcion()));
     }
 
     private static void registrarProducto() {
