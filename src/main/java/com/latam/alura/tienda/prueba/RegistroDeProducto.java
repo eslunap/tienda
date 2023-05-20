@@ -13,6 +13,14 @@ import java.math.BigDecimal;
 
 public class RegistroDeProducto {
     public static void main(String[] args) {
+        registrarProducto();
+        EntityManager em = JPAUtils.getEntityManager();
+        ProductoDao productoDao = new ProductoDao(em);
+        Producto p = productoDao.consultaPorId(1l);
+        System.out.println(p.getNombre());
+    }
+
+    private static void registrarProducto() {
         Categoria celulares = new Categoria("CELULARES");
 
         Producto celular = new Producto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
