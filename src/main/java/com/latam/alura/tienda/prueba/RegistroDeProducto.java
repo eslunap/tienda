@@ -1,6 +1,7 @@
 package com.latam.alura.tienda.prueba;
 
 import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
 import com.latam.alura.tienda.utils.JPAUtils;
 
@@ -11,10 +12,7 @@ import java.math.BigDecimal;
 
 public class RegistroDeProducto {
     public static void main(String[] args) {
-        Producto celular = new Producto();
-        celular.setNombre("Samsung");
-        celular.setDescripcion("teléfono usado");
-        celular.getPrecio(new BigDecimal("1000"));
+        Producto celular = new Producto("Samsung", "teléfono usado", new BigDecimal("1000"), Categoria.CELULARES);
 
         EntityManager em = JPAUtils.getEntityManager();
 
