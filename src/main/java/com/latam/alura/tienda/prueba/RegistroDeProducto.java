@@ -1,5 +1,6 @@
 package com.latam.alura.tienda.prueba;
 
+import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.Producto;
 
 import javax.persistence.EntityManager;
@@ -17,8 +18,12 @@ public class RegistroDeProducto {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("tienda-alura");
         EntityManager em = factory.createEntityManager();
 
+        ProductoDao productoDao = new ProductoDao(em);
+
         em.getTransaction().begin();
-        em.persist(celular);
+
+        productoDao.guardar(celular);
+
         em.getTransaction().commit();
         em.close();
     }
