@@ -15,6 +15,8 @@ public class Producto{
     private String descripcion;
     private BigDecimal precio;
     private LocalDate fechaDeregistro = LocalDate.now();
+
+    @ManyToOne
     private Categoria categoria;
 
     public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
