@@ -22,6 +22,9 @@ public class RegistroDeProducto {
 
         List<Producto> productos = productoDao.consultarTodos();
         productos.forEach(prod -> System.out.println(prod.getDescripcion()));
+
+        List<Producto> productos1 = productoDao.consultaPorNombre("Xiaomi Redmi");
+        productos1.forEach(prod1 -> System.out.println(prod1.getDescripcion()));
     }
 
     private static void registrarProducto() {
