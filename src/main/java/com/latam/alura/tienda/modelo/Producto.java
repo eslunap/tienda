@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="productos")
-public class Producto {
+public class Producto{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +16,13 @@ public class Producto {
     private BigDecimal precio;
     private LocalDate fechaDeregistro = LocalDate.now();
     private Categoria categoria;
+
+    public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria = categoria;
+    }
 
     public Long getId() {
         return id;
