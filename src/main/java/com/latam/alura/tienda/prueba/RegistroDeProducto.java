@@ -14,26 +14,19 @@ import java.math.BigDecimal;
 public class RegistroDeProducto {
     public static void main(String[] args) {
         Categoria celulares = new Categoria("CELULARES");
-        //Producto celular = new Producto("Samsung", "teléfono usado", new BigDecimal("1000"), celulares);
+
+        Producto celular = new Producto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
 
         EntityManager em = JPAUtils.getEntityManager();
+        ProductoDao productoDao = new ProductoDao(em);
+        CategoriaDao categoriaDao = new CategoriaDao(em);
 
         em.getTransaction().begin();
 
-        em.persist(celulares);
+        categoriaDao.guardar(celulares);
+        productoDao.guardar(celular);
 
-        celulares.setNombre("LIBROS");
-
-        em.flush();
-        em.clear();
-
-        celulares = em.merge(celulares);
-        celulares.setNombre("SOFTWARES");
-
-        em.flush();
-        em.clear();
-
-        celulares = em.merge(celulares);
-        em.flush();
+        em.getTransaction().commit();
+        em.close();
     }
 }
