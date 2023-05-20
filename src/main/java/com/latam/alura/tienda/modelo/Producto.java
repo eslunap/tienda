@@ -38,7 +38,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public BigDecimal getPrecio() {
+    public BigDecimal getPrecio(BigDecimal bigDecimal) {
         return precio;
     }
 
