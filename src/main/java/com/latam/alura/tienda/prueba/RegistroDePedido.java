@@ -20,7 +20,7 @@ public class RegistroDePedido {
         Pedido pedido = new Pedido(cliente);
         pedido.agregarItems(new ItemsPedido(5, producto, pedido));
 
-        
+
     }
     private static void registrarProducto() {
         Categoria celulares = new Categoria("CELULARES");
