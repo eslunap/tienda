@@ -22,19 +22,11 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido") //ManyToOne
     private List<ItemsPedido> items = new ArrayList<>();
 
-/*    @ManyToMany
-    @JoinTable(name="items_pedido")
-    private List<Producto> productos;*/
-
-
-    public Pedido() {
-        super();
-    }
+    public Pedido() {}
 
     public Pedido(Cliente cliente) {
         this.cliente = cliente;
     }
-
     public void agregarItems(ItemsPedido item){
         item.setPedido(this);
         this.items.add(item);
