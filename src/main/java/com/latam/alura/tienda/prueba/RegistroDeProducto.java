@@ -20,14 +20,14 @@ public class RegistroDeProducto {
         Producto p = productoDao.consultaPorId(1l);
         System.out.println(p.getNombre());
 
-        List<Producto> productos = productoDao.consultarTodos();
+/*        List<Producto> productos = productoDao.consultarTodos();
         productos.forEach(prod -> System.out.println(prod.getDescripcion()));
 
         List<Producto> productos1 = productoDao.consultaPorNombre("Xiaomi Redmi");
         productos1.forEach(prod1 -> System.out.println(prod1.getDescripcion()));
 
         List<Producto> productos2 = productoDao.consultaPorNombreCategoría("CELULARES");
-        productos2.forEach(prod1 -> System.out.println(prod1.getDescripcion()));
+        productos2.forEach(prod1 -> System.out.println(prod1.getDescripcion()));*/
 
         BigDecimal precio = productoDao.consultarPrecio("Xiaomi Redmi");
         System.out.println(precio);
