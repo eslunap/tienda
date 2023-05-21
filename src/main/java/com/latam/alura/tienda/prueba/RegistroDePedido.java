@@ -1,6 +1,7 @@
 package com.latam.alura.tienda.prueba;
 
 import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.PedidoDao;
 import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.*;
 import com.latam.alura.tienda.utils.JPAUtils;
@@ -15,6 +16,8 @@ public class RegistroDePedido {
         EntityManager em = JPAUtils.getEntityManager();
         ProductoDao productoDao = new ProductoDao(em);
         Producto producto = productoDao.consultaPorId(1L);
+
+        PedidoDao pedidoDao = new PedidoDao(em);
 
         Cliente cliente = new Cliente("Juan", "12345678");
         Pedido pedido = new Pedido(cliente);
