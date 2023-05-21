@@ -3,6 +3,7 @@ package com.latam.alura.tienda.modelo;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,8 +19,8 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany //ManyToOne
-    private List<ItemsPedido> items;
+    @OneToMany(mappedBy = "pedido") //ManyToOne
+    private List<ItemsPedido> items = new ArrayList<>();
 
 /*    @ManyToMany
     @JoinTable(name="items_pedido")
@@ -34,8 +35,13 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void agregarItems(ItemsPedido item){
+        item.setPedido(this);
+        this.items.add(item);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public LocalDate getFecha() {
