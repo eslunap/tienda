@@ -19,6 +19,7 @@ public class Pedido {
     private Cliente cliente;
 
     @ManyToMany
+    @JoinTable(name="items_pedido")
     private List<Producto> productos;
 
 
