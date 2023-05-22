@@ -15,13 +15,14 @@ public class RegistroDePedido {
         registrarProducto();
 
         EntityManager em = JPAUtils.getEntityManager();
+
         ProductoDao productoDao = new ProductoDao(em);
         Producto producto = productoDao.consultaPorId(1L);
 
         ClienteDao clienteDao = new ClienteDao(em);
         PedidoDao pedidoDao = new PedidoDao(em);
 
-        Cliente cliente = new Cliente("Juan", "12345678");
+        Cliente cliente = new Cliente("Juan", "123456");
         Pedido pedido = new Pedido(cliente);
         pedido.agregarItems(new ItemsPedido(5, producto, pedido));
 
