@@ -18,6 +18,14 @@ public class PedidoDao {
         this.em.persist(pedido);
     }
 
+    public void actualizar(Pedido pedido) {
+        this.em.merge(pedido);
+    }
+
+    public void remover(Pedido pedido) {
+        pedido=this.em.merge(pedido);
+        this.em.remove(pedido);
+    }
     public Pedido consultaPorId(Long id){
         return em.find(Pedido.class, id);
     }
