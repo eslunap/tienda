@@ -1,6 +1,7 @@
 package com.latam.alura.tienda.prueba;
 
 import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ClienteDao;
 import com.latam.alura.tienda.dao.PedidoDao;
 import com.latam.alura.tienda.dao.ProductoDao;
 import com.latam.alura.tienda.modelo.*;
@@ -17,11 +18,19 @@ public class RegistroDePedido {
         ProductoDao productoDao = new ProductoDao(em);
         Producto producto = productoDao.consultaPorId(1L);
 
+        ClienteDao clienteDao = new ClienteDao(em);
         PedidoDao pedidoDao = new PedidoDao(em);
 
         Cliente cliente = new Cliente("Juan", "12345678");
         Pedido pedido = new Pedido(cliente);
         pedido.agregarItems(new ItemsPedido(5, producto, pedido));
+
+        em.getTransaction().begin();
+
+        clienteDao.guardar(cliente);
+        pedidoDao.guardar(pedido);
+
+        em.getTransaction().commit();
 
 
     }
