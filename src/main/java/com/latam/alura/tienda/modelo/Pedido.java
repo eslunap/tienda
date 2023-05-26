@@ -14,6 +14,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate fecha = LocalDate.now();
+    @Column(name="valor_total")
     private BigDecimal valorTotal= new BigDecimal(0);
 
     @ManyToOne
