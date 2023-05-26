@@ -61,4 +61,12 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public List<ItemsPedido> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemsPedido> items) {
+        this.items = items;
+    }
 }
