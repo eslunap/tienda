@@ -12,8 +12,10 @@ public class PruebaDeDesempeno {
 
         EntityManager em = JPAUtils.getEntityManager();
 
-        Pedido pedido = em.find(Pedido.class, 3l);
+        Pedido pedido = em.find(Pedido.class, 3L);
 
-        System.out.println(pedido.getFecha());
+        //System.out.println(pedido.getFecha());
+        //System.out.println(pedido.getItems().size());
+        System.out.println(pedido.getCliente().getNombre());
     }
 }
