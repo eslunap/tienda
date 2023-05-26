@@ -88,7 +88,11 @@ public class LoadRecords {
     }
 
     private static List<String> readFile(String type) throws FileNotFoundException {
-        File file = new File("C:\\Users\\Public\\Alura\\jpa\\"+type+".txt");
+        File file = new File("C:\\Users\\eslun\\Documents\\CURSOS\\ALURA\\jpa\\"+type+".txt");
+        //C:\Users\eslun\Documents\CURSOS\ALURA\jpa
+        //File file = new File("C:\\Users\\Public\\Alura\\jpa\\"+type+".txt");
+
+        //C:\Users\eslun\Documents\CURSOS\ALURA\tienda\src\main\resources\\utils
         Scanner scan = new Scanner(file);
         List<String> pedido= new ArrayList<>();
         while(scan.hasNextLine()){
