@@ -60,7 +60,7 @@ public class PedidoDao {
     }
 
     public List<RelatorioDeVenta> relatorioDeVentasVO(){
-        String jpql = "SELECT new RelatorioDeVenta(producto.nombre, " +
+        String jpql = "SELECT new com.latam.alura.tienda.vo.RelatorioDeVenta(producto.nombre, " +
                 "SUM(item.cantidad), " +
                 "MAX(pedido.fecha)) " +
                 "FROM Pedido pedido " +
