@@ -3,7 +3,7 @@ package com.latam.alura.tienda.modelo;
 import javax.persistence.Entity;
 
 @Entity
-public class Libros {
+public class Libros extends Producto {
     private String autor;
     private int paginas;
 
